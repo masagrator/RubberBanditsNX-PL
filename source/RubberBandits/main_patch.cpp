@@ -42,6 +42,10 @@ void RB_main()
 	TextRegionOffset = (uintptr_t)skyline::utils::getRegionAddress(skyline::utils::region::Text);
 
 	//Offset recovered with il2cppdumper, named as Flashbulb.Platform.Device.Switch.SwitchDevice$$GetLocalizationISO
-	A64HookFunction((void*)(TextRegionOffset + 0x4F58280), reinterpret_cast<void*>(Flashbulb_Platform_Device_Switch_SwitchDevice::GetLocalizationISO::hook), (void**)&Flashbulb_Platform_Device_Switch_SwitchDevice::GetLocalizationISO::original);
 
+	//1.6.1
+	//A64HookFunction((void*)(TextRegionOffset + 0x4F58280), reinterpret_cast<void*>(Flashbulb_Platform_Device_Switch_SwitchDevice::GetLocalizationISO::hook), (void**)&Flashbulb_Platform_Device_Switch_SwitchDevice::GetLocalizationISO::original);
+
+	//1.6.2
+	A64HookFunction((void*)(TextRegionOffset + 0x2F4ED80), reinterpret_cast<void*>(Flashbulb_Platform_Device_Switch_SwitchDevice::GetLocalizationISO::hook), (void**)&Flashbulb_Platform_Device_Switch_SwitchDevice::GetLocalizationISO::original);
 }
